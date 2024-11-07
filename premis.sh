@@ -1,6 +1,10 @@
 #!/bin/bash
 
 HM_Funcio ()
+
+
+{
+Menu ()
 {
 echo -e "\n---------------------------------------------------------\n"
 echo "Catàleg de guanyadors i guanyadores d’Oscars"
@@ -18,21 +22,32 @@ read intro
 case $intro in
 1)
 clear
-echo "En desenvolupament";;
+echo "En desenvolupament"
+read otro
+clear
+Menu;;
 2)
 clear
-echo "En desenvolupament";;
+echo "En desenvolupament"
+read otro
+clear
+Menu;;
 3)
+read otro
 clear
-echo "En desenvolupament";;
+Menu;;
 4)
+read otro
 clear
-echo "En desenvolupament";;
+Menu;;
 0)
 exit;;
 esac
 }
 enDesenvolupament
+}
+Menu
+
 
 }
 HM_Funcio BestActor.csv BestActress.csv
