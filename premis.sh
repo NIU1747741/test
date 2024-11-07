@@ -1,8 +1,6 @@
 #!/bin/bash
 
 HM_Funcio ()
-
-
 {
 Menu ()
 {
@@ -14,6 +12,16 @@ echo "2 Cerca al catàleg."
 echo "3 Com ets d'Expert?."
 echo "4 Gestió del catáleg."
 echo "0 Sortir."
+
+opcioNoValida ()
+{
+clear
+echo "Opcio NO VÀLIDA"
+sleep 2
+clear
+Menu
+}
+opcioNoValida
 
 enDesenvolupament ()
 {
@@ -42,12 +50,12 @@ clear
 Menu;;
 0)
 exit;;
+*)
+opcioNoValida;;
 esac
 }
 enDesenvolupament
-}
+
 Menu
-
-
 }
 HM_Funcio BestActor.csv BestActress.csv
