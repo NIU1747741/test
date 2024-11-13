@@ -22,29 +22,35 @@ mostrarOpcioNoValida() {
 }
 
 # Función para opciones en desarrollo
-procesarMenu() {
-  read intro
-  case $intro in
-    1|2|3|4)
-      clear
-      echo "En desenvolupament"
-      read otro
-      clear
-      mostrarMenu
-      ;;
-    0)
-      exit
-      ;;
-    *)
-      mostrarOpcioNoValida
-      ;;
-  esac
+mostrarEnDesarrollo() {
+  clear
+  echo "En desenvolupament"
+  read -p "Prem qualsevol tecla per continuar..." -n1
+  clear
 }
 
-# Función principal
+# Función principal que controla el flujo del menú
 HM_Funcio() {
-  mostrarMenu
-  procesarMenu
+  local intro=""
+  
+  while true; do
+    mostrarMenu
+    read intro
+
+    case $intro in
+      1|2|3|4)
+        mostrarEnDesarrollo
+        ;;
+      0)
+        clear
+        echo "Gràcies per la vostra visita a Amor pel Setè Art"
+        exit 0
+        ;;
+      *)
+        mostrarOpcioNoValida
+        ;;
+    esac
+  done
 }
 
 # Llama a la función principal
