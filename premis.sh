@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Verifica que se hayan pasado dos argumentos
+if [ "$#" -ne 2 ]; then
+  echo "Ús: $0 <nom-BD-actors> <nom-BD-actrius>"
+  exit 1
+fi
+
+# Almacena los nombres de los archivos CSV
+BD_ACTORS="$1"
+BD_ACTRIUS="$2"
+
 # Función para mostrar el menú
 mostrarMenu() {
   clear
@@ -30,30 +40,25 @@ mostrarEnDesarrollo() {
   clear
 }
 
-# Función principal que controla el flujo del menú
-HM_Funcio() {
-  local intro=""
-  
-  while true; do
-    mostrarMenu
-    read intro
+# Bucle principal del menú
+local intro=""
 
-    case $intro in
-      1|2|3|4)
-        mostrarEnDesarrollo
-        ;;
-      0)
-        clear
-        echo "Gràcies per la vostra visita a Amor pel Setè Art"
-        exit 0
-        ;;
-      *)
-        mostrarOpcioNoValida
-        ;;
-    esac
-  done
-}
+while true; do
+	mostrarMenu
+	read intro
 
-# Llama a la función principal
-HM_Funcio BestActor.csv BestActress.csv
+	case $intro in
+		1|2|3|4)
+			mostrarEnDesarrollo
+			;;
+		0)
+			clear
+			echo "Gràcies per la vostra visita a Amor pel Setè Art"
+			exit 0
+			;;
+		*)
+			mostrarOpcioNoValida
+			;;
+	esac
+done
 
