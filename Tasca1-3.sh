@@ -9,8 +9,11 @@ cat OrdenatBestActor
 rm temp1
 rm OrdenatBestActor
 
-cut -d, -f2- $2 >> temp2
-rm temp2
+cut -d, -f2- $2 > temp1 
+sort -n -t, -k 2 temp1 > OrdenatBestActress
+cat OrdenatBestActress
+rm temp1
+rm OrdenatBestActress
 
 }
 Tasca1-3 $1 $2
