@@ -29,7 +29,7 @@ while true; do
 
 	case $intro in
 		1)
-			echo "Tasca 1-1 en desenvolupament"
+			bash tasca1-1.sh BestActor.csv BestActress.csv
 			;;
 		2)
 			echo "Tasca 1-2 en desenvolupament"
