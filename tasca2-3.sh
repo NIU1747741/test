@@ -13,6 +13,9 @@ search_name="$3"
 # Variables temporales para guardar resultados
 temp_file=$(mktemp)
 
+# Limpiamos la pantalla al inicio
+clear
+
 # Buscar coincidencias en el archivo de actores
 tail -n +2 "$actor_file" | awk -F',' -v search="$search_name" '
 tolower($4) ~ tolower(search) {
@@ -26,6 +29,7 @@ tolower($4) ~ tolower(search) {
 }' >> "$temp_file"
 
 # Ordenamos alfabéticamente por nombre y mostramos los resultados
+clear
 echo "**********************************************************************************"
 echo "****************** RESULTADOS DE LA BÚSQUEDA PARA \"$search_name\" ******************"
 sort "$temp_file"
