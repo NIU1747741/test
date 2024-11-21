@@ -2,6 +2,9 @@
 
 Tasca2-2 () 
 {
+let vols=1
+while [[ $vols != 2 ]] 
+do
     echo "Introdueix el títol de la película"
     read titol
     
@@ -15,7 +18,7 @@ Tasca2-2 ()
         peli=$(echo "$linea" | cut -d, -f5)
         if [[ "${peli,,}" == *"${titol,,}"* ]]; 
         then
-        echo "$linea" >> filtrar
+        echo "$linea" "- Millor Actor" >> filtrar
         trobat=true
         fi
     done
@@ -26,7 +29,7 @@ Tasca2-2 ()
         peli=$(echo "$linea" | cut -d, -f5)
         if [[ "${peli,,}" == *"${titol,,}"* ]]; 
         then
-        echo "$linea" >> filtrar
+        echo "$linea" "- Millor Actriu" >> filtrar
         trobat=true
         fi
     done
@@ -40,5 +43,19 @@ sort -k5 -t, filtrar | cut -d, -f2- > filtrar1
 cat filtrar1
 rm filtrar
 rm filtrar1
+
+echo " "
+echo "Vols:"
+echo "1. Tornar a buscar "
+echo "2. Tornar al menu anterior"
+read vols
+
+if [ $vols -eq 2 ];
+then
+clear
+echo "bash Opcio2.sh"
+fi
+
+done
 }
 Tasca2-2 "$1" "$2"
