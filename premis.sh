@@ -48,7 +48,10 @@ while true; do
 	read intro
 
 	case $intro in
-		1|2|3|4)
+		1)
+			bash Opcio-1.sh BestActor.csv BestActress.csv
+			;;
+		2|3|4)
 			mostrarEnDesarrollo
 			;;
 		0)
