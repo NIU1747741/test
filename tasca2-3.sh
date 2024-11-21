@@ -19,4 +19,9 @@ tolower($4) ~ tolower(search) {
   print $4 ", " $2 ", con " $3 " años, premio a MEJOR ACTOR, por " $5
 }' >> "$temp_file"
 
+# Buscar coincidencias en el archivo de actrices
+tail -n +2 "$actress_file" | awk -F',' -v search="$search_name" '
+tolower($4) ~ tolower(search) {
+  print $4 ", " $2 ", con " $3 " años, premio a MEJOR ACTRIZ, por " $5
+}' >> "$temp_file"
 
