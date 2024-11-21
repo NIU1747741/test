@@ -1,30 +1,29 @@
 #!/bin/bash
 
-Tasca2-2 ()
+Tasca2-2 () 
 {
-echo "Introdueix el títol de la película"
-read titol
-cut -d, -f5 "$1" | tail +2 > titols
-
-grep -i "$titol" titols > filtrat
-
-let numlineas=wc -l < $1
-
-for (( i=1; i<$numlineas; i++))
-do
-if ((filtrat ~= $valor ));
-then
-cut -d, -f5 "$1" | head -$i | tail -1 > filtrattotal
-cat filtrattotal
-else
-echo "Pel·lícula no present al catàleg"
-fi
-done
+    echo "Introdueix el títol de la película"
+    read titol
+    
+    trobat=false
+    numlineas=$(wc -l < "$1")
 
 
-
-rm filtrat
-rm titols
-
+    for (( i=2; i<=numlineas; i++ )); 
+    do
+        linea=$(head -n $i "$1" | tail -n 1)
+        peli=$(echo "$linea" | cut -d, -f5)
+        if [[ "${peli,,}" == *"${titol,,}"* ]]; 
+        then
+        echo "$linea"
+        trobat=true
+        fi
+    done
+    
+    if [ "$trobat" = false ]; 
+    then
+        echo "Pel·lícula no present al catàleg"
+    fi
 }
-Tasca2-2 $1 $2
+
+Tasca2-2 "$1" "$2"
