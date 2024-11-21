@@ -25,3 +25,9 @@ tolower($4) ~ tolower(search) {
   print $4 ", " $2 ", con " $3 " años, premio a MEJOR ACTRIZ, por " $5
 }' >> "$temp_file"
 
+# Ordenamos alfabéticamente por nombre y mostramos los resultados
+echo "**********************************************************************************"
+echo "****************** RESULTADOS DE LA BÚSQUEDA PARA \"$search_name\" ******************"
+sort "$temp_file"
+echo "**********************************************************************************"
+
