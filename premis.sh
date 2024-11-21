@@ -53,7 +53,7 @@ while true; do
 			;;
 		0)
 			clear
-			echo "Gràcies per la vostra visita a Amor pel Setè Art"
+			echo "Gràcies per la vostra visita a Amor pel Setè Art."
 			exit 0
 			;;
 		*)
