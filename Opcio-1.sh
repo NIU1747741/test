@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Almacena los nombres de los archivos CSV
+BD_ACTORS="$1"
+BD_ACTRIUS="$2"
+
 mostrarMenu() {
 	clear
 	echo -e "\n---------------------------------------------------------\n"
@@ -29,13 +33,13 @@ while true; do
 
 	case $intro in
 		1)
-			bash tasca1-1.sh BestActor.csv BestActress.csv
+			bash tasca1-1.sh $BD_ACTORS $BD_ACTRIUS
 			;;
 		2)
-			bash tasca1-2.sh BestActor.csv BestActress.csv
+			bash tasca1-2.sh $BD_ACTORS $BD_ACTRIUS
 			;;
 		3)
-			bash Tasca1-3.sh BestActor.csv BestActress.csv
+			bash Tasca1-3.sh $BD_ACTORS $BD_ACTRIUS
 			;;
 		0)
 			exit

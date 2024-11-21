@@ -49,7 +49,7 @@ while true; do
 
 	case $intro in
 		1)
-			bash Opcio-1.sh BestActor.csv BestActress.csv
+			bash Opcio-1.sh $BD_ACTORS $BD_ACTRIUS
 			;;
 		2|3|4)
 			mostrarEnDesarrollo
