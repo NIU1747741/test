@@ -55,3 +55,6 @@ done
 rm temp1 temp2 temp3
 
 echo ""
+
+echo "************************** PREMI UNA TECLA PER CONTINUAR *************************"
+read -n 1 -s  # Esperar a que el usuario pulse una tecla para continuar

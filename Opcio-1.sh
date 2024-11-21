@@ -32,7 +32,7 @@ while true; do
 			bash tasca1-1.sh BestActor.csv BestActress.csv
 			;;
 		2)
-			echo "Tasca 1-2 en desenvolupament"
+			bash tasca1-2.sh BestActor.csv BestActress.csv
 			;;
 		3)
 			echo "Tasca 1-3 en desenvolupament"
