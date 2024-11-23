@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Introdueix un any d'inici i un de final: "
+echo "Introdueix un any d'inici i un de final:  "
 read anyI anyF
 
 while [ $anyI -gt $anyF ]
@@ -57,3 +57,4 @@ done
 echo "********************************************** PREMI UNA TECLA PER CONTINUAR **********************************************"
 
 rm Tactors Tactress tmp1 tmp2
+
