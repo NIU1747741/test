@@ -5,8 +5,7 @@ Tasca2-2 ()
 let vols=1
 while [[ $vols != 2 ]] 
 do
-    echo "Introdueix el títol de la película"
-    read titol
+    echo "Pel·lícula"
     
     trobat=false
     numlineas=$(wc -l < "$1")
@@ -16,7 +15,7 @@ do
     do
         linea=$(head -n $i "$1" | tail -n 1)
         peli=$(echo "$linea" | cut -d, -f5)
-        if [[ "${peli,,}" == *"${titol,,}"* ]]; 
+        if [[ "${peli,,}" == *"${3,,}"* ]]; 
         then
         echo "$linea" "- Millor Actor" >> filtrar
         trobat=true
@@ -27,7 +26,7 @@ do
     do
         linea=$(head -n $i "$2" | tail -n 1)
         peli=$(echo "$linea" | cut -d, -f5)
-        if [[ "${peli,,}" == *"${titol,,}"* ]]; 
+        if [[ "${peli,,}" == *"${3,,}"* ]]; 
         then
         echo "$linea" "- Millor Actriu" >> filtrar
         trobat=true
@@ -58,4 +57,4 @@ fi
 
 done
 }
-Tasca2-2 "$1" "$2"
+Tasca2-2 "$1" "$2" "$3"
