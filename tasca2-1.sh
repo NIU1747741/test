@@ -56,4 +56,4 @@ done
 
 echo "********************************************** PREMI UNA TECLA PER CONTINUAR **********************************************"
 
-rm Tactors Tactress
+rm Tactors Tactress tmp1 tmp2
