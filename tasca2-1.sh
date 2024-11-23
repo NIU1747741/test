@@ -16,7 +16,7 @@ do
 done
 
 #A partir d'aqui els anys son $3 y $4
-echo "*********************************************************************************************************************************"
+echo "**********************************************************************************************************************************"
 echo "****************************************** Qui va guanyar durant els anys $anyI a $anyF ? ******************************************"
 echo ""
 
@@ -27,7 +27,7 @@ for i in $(seq $anyI $anyF) ;
 do
 	grep $i Tactors > tmp1
 	grep $i Tactress > tmp2
-	Act_m=`cut -d, -f3 tmp1`
+	Act_m=`cut -d"," -f3 tmp1`
 	Pel_m=`cut -d, -f4 tmp1`
 	Edat_m=`cut -d, -f2 tmp1`
 	Act_f=`cut -d, -f3 tmp2`
@@ -42,7 +42,7 @@ do
 	
 	if [ -n "$Act_m" ] && [ -n "$Act_f" ];
 	then
-	echo "Al $i, El premi al millor actor va ser$Act_m amb$Edat_m anys per$Pel_m, i el premi a la millor actriu$Act_f amb$Edat_f anys per$Pel_f"
+	echo "$i, El premi al millor actor va ser$Act_m amb$Edat_m anys per$Pel_m i el premi a la millor actriu$Act_f amb$Edat_f anys per$Pel_f"
 	elif [ -z "$Act_m" ] && [ -n "$Act_f" ];
 	then 
 	echo "Al $i, El premi a la millor actriu va ser$Act_f amb$Edat_f anys per$Pel_f"
