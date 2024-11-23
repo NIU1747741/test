@@ -17,13 +17,13 @@ done
 
 #A partir d'aqui els anys son $3 y $4
 echo "**********************************************************************************************************************************"
-echo "****************************************** Qui va guanyar durant els anys $anyI a $anyF ? ******************************************"
+echo "****************************************** Qui va guanyar durant els anys $2 a $3 ? ******************************************"
 echo ""
 
 tail +2 BestActor.csv | cut -d, -f2-5 > Tactors
 tail +2 BestActress.csv | cut -d, -f2-5 > Tactress
 
-for i in $(seq $anyI $anyF) ;
+for i in $(seq $2 $3) ;
 do
 	grep $i Tactors > tmp1
 	grep $i Tactress > tmp2
