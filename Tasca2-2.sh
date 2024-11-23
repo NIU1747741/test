@@ -3,8 +3,7 @@
 Tasca2-2 () 
 {
 let vols=1
-while [[ $vols != 2 ]] 
-do
+
     echo "Pel·lícula"
     
     trobat=false
@@ -52,9 +51,18 @@ read vols
 if [ $vols -eq 2 ];
 then
 clear
-echo "bash Opcio2.sh"
+bash Opcio-2.sh
 fi
 
-done
+if [ $vols -eq 1 ];
+then
+clear
+echo "Introdueix una pel·lícula"
+read valor
+bash Tasca2-2.sh $1 $2 $valor
+fi
+
 }
 Tasca2-2 "$1" "$2" "$3"
+
+
