@@ -34,13 +34,28 @@ while true; do
 
 	case $intro in
 		1)
-		echo "Introdueix dos anys"
-		read any1
-		read any2
+		clear
+		echo "Introdueix un any d'inici i un de final:  "
+
+		read anyI anyF
+
+		while [ "$anyI" -gt "$anyF" ]
+		do
+
+		if [ "$anyI" -gt "$anyF" ] ;
+		then
+		echo "error: Introdueix any inicial igual o més petit a any final"
+		echo "Introdueix un any d'inici i un de final: "
+		read anyI anyF
+		fi
+	
+		done
+
 		
-		        bash tasca2-1.sh "$BD_ACTORS" "$BD_ACTRIUS" "$any1" "$any"
+		        bash tasca2-1.sh "$BD_ACTORS" "$BD_ACTRIUS" "$anyI" "$anyF"
 			;;
 		2)
+		clear
 		echo "Introdueix el nom de la pel·lícula"
 		read nom
 		

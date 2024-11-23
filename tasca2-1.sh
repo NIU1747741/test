@@ -1,25 +1,8 @@
 #!/bin/bash
 
-echo "Introdueix un any d'inici i un de final:  "
-
-read anyI
-read anyY
-
-while [ $anyI -gt $anyF ]
-do
-
-	if [ $anyI -gt $anyF ] ;
-	then
-		echo "error: Introdueix any inicial igual o més petit a any final"
-		echo "Introdueix un any d'inici i un de final: "
-		read anyI anyF
-	fi
-	
-done
-
 #A partir d'aqui els anys son $3 y $4
 echo "**********************************************************************************************************************************"
-echo "****************************************** Qui va guanyar durant els anys $2 a $3 ? ******************************************"
+echo "****************************************** Qui va guanyar durant els anys $3 a $4 ? ******************************************"
 echo ""
 
 tail +2 BestActor.csv | cut -d, -f2-5 > Tactors
@@ -60,3 +43,38 @@ echo "********************************************** PREMI UNA TECLA PER CONTINU
 
 rm Tactors Tactress tmp1 tmp2
 
+echo " "
+echo "Selecciona una opció: "
+echo "1. Tornar a buscar "
+echo "2. Tornar al menu anterior"
+read seleccio
+
+if [ $seleccio -eq 2 ];
+then
+clear
+bash Opcio-2.sh
+fi
+
+if [ $seleccio -eq 1 ];
+then
+clear
+clear
+		echo "Introdueix un any d'inici i un de final:  "
+
+		read anyI anyF
+
+		while [ "$anyI" -gt "$anyF" ]
+		do
+
+		if [ "$anyI" -gt "$anyF" ] ;
+		then
+		echo "error: Introdueix any inicial igual o més petit a any final"
+		echo "Introdueix un any d'inici i un de final: "
+		read anyI anyF
+		fi
+	
+		done
+
+		
+		        bash tasca2-1.sh "$BD_ACTORS" "$BD_ACTRIUS" "$anyI" "$anyF"
+fi
