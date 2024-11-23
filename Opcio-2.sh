@@ -34,10 +34,17 @@ while true; do
 
 	case $intro in
 		1)
-		        echo "En desenvolupament"
+		echo "Introdueix dos anys"
+		read any1
+		read any2
+		
+		        bash tasca2-1.sh "$BD_ACTORS" "$BD_ACTRIUS" "$any1" "$any"
 			;;
 		2)
-			echo "En desenvolupament"
+		echo "Introdueix el nom de la pel·lícula"
+		read nom
+		
+			bash Tasca2-2.sh "$BD_ACTORS" "$BD_ACTRIUS" "$nom"
 			;;
 		3)
 			clear

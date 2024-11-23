@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "Introdueix un any d'inici i un de final:  "
-read anyI anyF
+
+read anyI
+read anyY
 
 while [ $anyI -gt $anyF ]
 do
