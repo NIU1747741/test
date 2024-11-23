@@ -26,6 +26,7 @@ mostrarOpcioNoValida() {
 
 # Bucle principal del menú
 local intro=""
+local txt=""
 
 while true; do
 	mostrarMenu
@@ -39,7 +40,10 @@ while true; do
 			echo "En desenvolupament"
 			;;
 		3)
-			echo "En desenvolupament"
+			clear
+			echo -e "\nIntroduïu el nom de la persona per cercar: "
+			read txt
+			bash tasca2-3.sh "$BD_ACTORS" "$BD_ACTRIUS" "$txt"
 			;;
 		0)
 			exit
