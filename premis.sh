@@ -51,7 +51,10 @@ while true; do
 		1)
 			bash Opcio-1.sh $BD_ACTORS $BD_ACTRIUS
 			;;
-		2|3|4)
+		2)	
+			bash Opcio-2.sh $BD_ACTORS $BD_ACTRIUS
+			;;
+		3|4)
 			mostrarEnDesarrollo
 			;;
 		0)

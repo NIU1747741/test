@@ -69,6 +69,7 @@ while true; do
 			;;
 		0)
 			exit
+			bash premis.sh
 			;;
 		*)
 			mostrarOpcioNoValida
