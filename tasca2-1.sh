@@ -26,9 +26,9 @@ for i in $(seq $3 $4) ; do
 	if [ -n "$Act_m" ] && [ -n "$Act_f" ]; then
 		echo "$i, El premi al millor actor va ser$Act_m amb$Edat_m anys per$Pel_m i el premi a la millor actriu$Act_f amb$Edat_f anys per$Pel_f"
 	elif [ -z "$Act_m" ] && [ -n "$Act_f" ]; then 
-		echo "Al $i, El premi a la millor actriu va ser$Act_f amb$Edat_f anys per$Pel_f"
+		echo "$i, El premi a la millor actriu va ser$Act_f amb$Edat_f anys per$Pel_f"
 	elif [ -n "$Act_m" ] && [ -z "$Act_f" ]; then
-		echo "Al $i, El premi al millor actor va ser$Act_m amb$Edat_m anys per$Pel_m"
+		echo "$i, El premi al millor actor va ser$Act_m amb$Edat_m anys per$Pel_m"
 	else
 		echo "No s'ha trobat l'any $i al catàleg"
 	fi
