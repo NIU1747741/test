@@ -25,8 +25,8 @@ mostrarOpcioNoValida() {
 }
 
 # Bucle principal del menú
-local intro=""
-local txt=""
+intro=""
+txt=""
 
 while true; do
 	mostrarMenu
@@ -40,14 +40,13 @@ while true; do
 			echo "Introdueix un any final: "
 			read anyF
 
-			while [ "$anyI" -gt "$anyF" ]
-				do
-
-				if [ "$anyI" -gt "$anyF" ]; then
+			while [ "$anyI" -gt "$anyF" ]; do
+					clear
 					echo "error: Introdueix any inicial igual o més petit a any final"
-					echo "Introdueix un any d'inici i un de final: "
-					read anyI anyF
-				fi
+					echo "Introdueix un any d'inici: "
+					read anyI
+					echo "Introdueix un any final: "
+					read anyF
 			done
 			
 		  bash tasca2-1.sh "$BD_ACTORS" "$BD_ACTRIUS" "$anyI" "$anyF"
