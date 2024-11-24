@@ -34,31 +34,28 @@ while true; do
 
 	case $intro in
 		1)
-		clear
-		echo "Introdueix un any d'inici i un de final:  "
+			clear
+			echo "Introdueix un any d'inici: "
+			read anyI
+			echo "Introdueix un any final: "
+			read anyF
 
-		read anyI anyF
+			while [ "$anyI" -gt "$anyF" ]
+				do
 
-		while [ "$anyI" -gt "$anyF" ]
-		do
-
-		if [ "$anyI" -gt "$anyF" ] ;
-		then
-		echo "error: Introdueix any inicial igual o més petit a any final"
-		echo "Introdueix un any d'inici i un de final: "
-		read anyI anyF
-		fi
-	
-		done
-
-		
-		        bash tasca2-1.sh "$BD_ACTORS" "$BD_ACTRIUS" "$anyI" "$anyF"
+				if [ "$anyI" -gt "$anyF" ]; then
+					echo "error: Introdueix any inicial igual o més petit a any final"
+					echo "Introdueix un any d'inici i un de final: "
+					read anyI anyF
+				fi
+			done
+			
+		  bash tasca2-1.sh "$BD_ACTORS" "$BD_ACTRIUS" "$anyI" "$anyF"
 			;;
 		2)
-		clear
-		echo "Introdueix el nom de la pel·lícula"
-		read nom
-		
+			clear
+			echo "Introdueix el nom de la pel·lícula: "
+			read nom
 			bash Tasca2-2.sh "$BD_ACTORS" "$BD_ACTRIUS" "$nom"
 			;;
 		3)
@@ -69,7 +66,6 @@ while true; do
 			;;
 		0)
 			exit
-			bash premis.sh
 			;;
 		*)
 			mostrarOpcioNoValida
