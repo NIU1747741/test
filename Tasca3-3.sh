@@ -18,3 +18,10 @@ else
   tipo="actriu"
 fi
 
+# Limpiamos la pantalla al inicio
+clear
+
+# Extraer tres líneas aleatorias diferentes del archivo seleccionado
+lines=$(tail -n +2 "$selected_file" | shuf -n 3)
+
+echo $lines
