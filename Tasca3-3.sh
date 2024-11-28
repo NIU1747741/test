@@ -33,3 +33,13 @@ while IFS=',' read -r year name age movie; do
   years+=("$year")
 done <<< "$lines"
 
+# Mostrar las películas seleccionadas
+clear
+echo "--------------------------------------------------"
+echo "3-3 - Ordena cronològicament"
+echo "--------------------------------------------------"
+for i in {0..2}; do
+  echo "$((i+1))-${peliculas[$i]}"
+done
+echo "------------------------------------------------------------------"
+
