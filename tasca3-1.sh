@@ -8,34 +8,60 @@ echo "*********************************************************"
 tail +2 $1 > Lactors
 tail +2 $2 > Lactress
 
-cat Lactors > Tactors
-cat Lactress >> Tactors
+#Añadimos una etiqueta para saber si la linea es de hombres o mujeres y pasamos los ficheros a 1 solo
+awk '{print "Actor," $0}' Lactors > Tactors
+awk '{print "Actriz," $0}' Lactress >> Tactors
 
-#Generamos Película incógnita y las otras 2
-Pel_inc=`sort -R Tactors | head -1 | cut -d, -f5`
-Pel_rand1=`sort -R Tactors | head -1 | cut -d, -f5`
-Pel_rand2=`sort -R Tactors | head -1 | cut -d, -f5`
+#Generamos Película incógnita y las otras 2 + los años y los actores (también la etiqueta)
+linia_inc=`sort -R Tactors | head -1`
+linia_rand1=`sort -R Tactors | head -1`
+linia_rand2=`sort -R Tactors | head -1`
 
-while [ "$Pel_rand1" = "$Pel_inc" ] || [ "$Pel_rand2 = $Pel_inc" ] || [ "$Pel_rand1 = $Pel_rand2" ]
+Pel_inc=`echo $linia_inc | cut -d, -f6`
+any_inc=`echo $linia_inc | cut -d, -f3`
+act_inc=`echo $linia_inc | cut -d, -f5`
+eti_inc=`echo $linia_inc | cut -d, -f1`
+
+Pel_rand1=`echo $linia_rand1 | cut -d, -f6`
+any_rand1=`echo $linia_rand1 | cut -d, -f3`
+act_rand1=`echo $linia_rand1 | cut -d, -f5`
+
+Pel_rand2=`echo $linia_rand2 | cut -d, -f6`
+any_rand2=`echo $linia_rand2 | cut -d, -f3`
+act_rand2=`echo $linia_rand2 | cut -d, -f5`
+
+while [ "$any_rand1" -eq "$any_inc" ] || [ "$any_rand2" -eq "$any_inc" ] || [ "$any_rand1" -eq "$any_rand2" ]
 do
-	if [ $Pel_rand1 = $Pel_inc ] ;
+	if [ "$any_rand1" -eq "$any_inc" ] ;
 	then
-		Pel_rand1=`sort -R Tactors | head -1 | cut -d, -f5`
+		linia_rand1=`sort -R Tactors | head -1`
+		Pel_rand1=`echo $linia_rand1 | cut -d, -f5`
+		any_rand1=`echo $linia_rand1 | cut -d, -f2`
+		act_rand1=`echo $linia_rand1 | cut -d, -f4`
 	fi
 	
-	if [ $Pel_rand2 = $Pel_inc ] ;
+	if [ "$any_rand2" -eq "$any_inc" ] ;
 	then
-		Pel_rand2=`sort -R Tactors | head -1 | cut -d, -f5`
+		linia_rand2=`sort -R Tactors | head -1`
+		Pel_rand2=`echo $linia_rand2 | cut -d, -f5`
+		any_rand2=`echo $linia_rand2 | cut -d, -f2`
+		act_rand2=`echo $linia_rand2 | cut -d, -f4`
 	fi
 	
-	if [ $Pel_rand1 = $Pel_rand2 ] ;
+	if [ "$any_rand1" -eq "$any_rand2" ] ;
 	then
-		Pel_rand1=`sort -R Tactors | head -1 | cut -d, -f5`
+		linia_rand1=`sort -R Tactors | head -1`
+		Pel_rand1=`echo $linia_rand1 | cut -d, -f5`
+		any_rand1=`echo $linia_rand1 | cut -d, -f2`
+		act_rand1=`echo $linia_rand1 | cut -d, -f4`
 	fi
 done
 
-echo $Pel_inc
-echo $Pel_rand1
-echo $Pel_rand2
+#imprimimos pregunta y pedimos respuesta
+if [ "$eti_inc" = "Actor" ] ;
+then	
+	echo ""
+	echo "Quin any va guanyar l'Oscar a millor actor $act_inc en $any_inc?"
+	echo ""
 
 rm Lactors Lactress Tactors
