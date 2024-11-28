@@ -43,3 +43,11 @@ for i in {0..2}; do
 done
 echo "------------------------------------------------------------------"
 
+# Pedir al usuario que ordene las películas cronológicamente
+echo "Escriu el número de la pel·lícula més antiga de les tres:"
+read oldest
+echo "Escriu el número de la pel·lícula intermèdia de les tres:"
+read middle
+echo "Escriu el número de la pel·lícula més nova de les tres:"
+read newest
+
