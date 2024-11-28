@@ -9,3 +9,12 @@ fi
 actor_file="$1"
 actress_file="$2"
 
+# Selección aleatoria de si usar actores o actrices
+if (( RANDOM % 2 == 0 )); then
+  selected_file="$actor_file"
+  tipo="actor"
+else
+  selected_file="$actress_file"
+  tipo="actriu"
+fi
+
