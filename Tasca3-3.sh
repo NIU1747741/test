@@ -24,4 +24,12 @@ clear
 # Extraer tres líneas aleatorias diferentes del archivo seleccionado
 lines=$(tail -n +2 "$selected_file" | shuf -n 3)
 
-echo $lines
+# Procesar las líneas seleccionadas y extraer datos
+peliculas=()
+years=()
+
+while IFS=',' read -r year name age movie; do
+  peliculas+=("$name amb $age anys va guanyar l’Oscar a millor $tipo amb $movie")
+  years+=("$year")
+done <<< "$lines"
+
