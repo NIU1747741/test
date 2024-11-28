@@ -37,6 +37,10 @@ do
 done
 
 echo -e "L'oscar a millor actriu amb$pelirandom el va guanyar al$anyrandom \n"
+for (( i=0; i<${#opcions[@]}; i++ ))
+do
+echo " $((i+1)) - ${opciones[$i]}"
+done
 echo -e "\n-------------------------------------------------- \n "
 echo "Selecciona una opció [1,2,3]: "
 
