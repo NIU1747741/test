@@ -21,17 +21,8 @@ actor3=$(awk -F, "NR==$random3 {print \$4}" $1)
 # He buscat informació, i la millor forma de fer aquesta part, és una barreja amb shuf, si la professora necessita explicació per la meva part de com utilitzar això se la puc donar
 
 opcions=("$actor1" "$actor2" "$actor3")
-correcta=1
 opcions=($(shuf -e "${opcions[@]}"))
-
-for (( i=0; i<${#opcions[@]}; i++))
-do
- if [[ "${opcions[$i]}" == "$actor1" ]]; 
- then
-    correcta=$((i + 1))
-    break
- fi
-done
+correcta=1
 
 echo -e "L'oscar a millor actriu amb$pelirandom el va guanyar al$anyrandom \n"
 echo "1 - $actor1"  
