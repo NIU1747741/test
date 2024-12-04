@@ -90,4 +90,5 @@ else
 fi
 
 echo "************************* PRESIONA UNA TECLA PER CONTINUAR ************************"
+read -n 1 -s  #Esperar a que el usuario pulse una tecla para continuar
 rm Lactors Lactress Tactors tmpA

@@ -22,13 +22,16 @@ mostrarOpcioNoValida() {
   clear
 }
 
+#Bucle principal del menú
+while true; do
+
 MostrarMenu
 
 read num
 
 case $num in 
 	1) 
-		echo "En desenvolupament 1";;
+		bash tasca3-1.sh $ACTORS $ACTRIUS;;
 	2)
 		echo "En desenvolupament 2";;
 	3)
@@ -39,3 +42,6 @@ case $num in
 		mostrarOpcioNoValida;;
 esac
 
+done
+
+echo ""
