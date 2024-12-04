@@ -51,3 +51,21 @@ read middle
 echo "Escriu el número de la pel·lícula més nova de les tres:"
 read newest
 
+# Calcular el orden correcto de los índices según los años
+sorted_indices=($(for i in "${!years[@]}"; do echo "$i ${years[$i]}"; done | sort -k2n | awk '{print $1}'))
+
+# Convertimos los índices ordenados en las respuestas correctas
+orden_correcto=("${peliculas[${sorted_indices[0]}]}" "${peliculas[${sorted_indices[1]}]}" "${peliculas[${sorted_indices[2]}]}")
+
+# Verificar la respuesta del usuario
+if [[ "${peliculas[$((oldest-1))]}" == "${orden_correcto[0]}" && \
+      "${peliculas[$((middle-1))]}" == "${orden_correcto[1]}" && \
+      "${peliculas[$((newest-1))]}" == "${orden_correcto[2]}" ]]; then
+  echo "Correcte! Bona feina!"
+else
+  echo "Incorrecte. L’ordre correcte és:"
+  for pelicula in "${orden_correcto[@]}"; do
+    echo "$pelicula"
+  done
+fi
+
