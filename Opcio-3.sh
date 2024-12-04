@@ -39,7 +39,7 @@ case $num in
 	3)
 		bash tasca3-3.sh $ACTORS $ACTRIUS;;
 	0)
-		bash premis.sh;;
+		bash premis.sh $ACTORS $ACTRIUS;;
 	*)
 		mostrarOpcioNoValida;;
 esac
