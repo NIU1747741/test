@@ -29,15 +29,17 @@ MostrarMenu
 
 read num
 
+while true;
+do
 case $num in 
 	1) 
 		bash tasca3-1.sh $ACTORS $ACTRIUS;;
 	2)
-		echo "En desenvolupament 2";;
+		bash Tasca3-2.sh;;
 	3)
 		bash tasca3-3.sh $ACTORS $ACTRIUS;;
 	0)
-		exit;;
+		bash premis.sh
 	*)
 		mostrarOpcioNoValida;;
 esac
@@ -45,3 +47,4 @@ esac
 done
 
 echo ""
+done
