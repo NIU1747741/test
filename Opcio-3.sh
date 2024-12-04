@@ -29,17 +29,22 @@ MostrarMenu
 
 read num
 
-while true;
-do
 case $num in 
 	1) 
-		bash tasca3-1.sh $ACTORS $ACTRIUS;;
-	2)
-		bash Tasca3-2.sh $ACTORS $ACTRIUS;;
+		clear
+		bash tasca3-1.sh $ACTORS $ACTRIUS
+		;;
+	2)	
+		clear
+		bash Tasca3-2.sh $ACTORS $ACTRIUS
+		;;
 	3)
-		bash tasca3-3.sh $ACTORS $ACTRIUS;;
+		clear
+		bash tasca3-3.sh $ACTORS $ACTRIUS
+		;;
 	0)
-		bash premis.sh $ACTORS $ACTRIUS;;
+		exit
+		;;
 	*)
 		mostrarOpcioNoValida;;
 esac
@@ -47,4 +52,3 @@ esac
 done
 
 echo ""
-done
