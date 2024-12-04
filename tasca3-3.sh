@@ -69,3 +69,6 @@ else
   done
 fi
 
+echo "************************** PREMI UNA TECLA PER CONTINUAR *************************"
+read -n 1 -s  # Esperar a que el usuario pulse una tecla para continuar
+
