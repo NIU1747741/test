@@ -13,14 +13,17 @@ if [[ $homeodona -eq 0 ]]; then
     archivo=$2
 fi
 
-# Generar datos aleatorios
-random=$(($RANDOM % 88))
+# Calcular el número de líneas en el archivo (sin contar el encabezado)
+total_lines=$(($(wc -l < "$archivo") - 1))
+
+# Generar índices aleatorios
+random=$(($RANDOM % total_lines + 2))  # Comienza en la línea 2
+random2=$(($RANDOM % total_lines + 2))
+random3=$(($RANDOM % total_lines + 2))
+
+# Extraer información usando los índices
 pelirandom=$(awk -F, "NR==$random {print \$5}" "$archivo")
 anyrandom=$(awk -F, "NR==$random {print \$2}" "$archivo")
-random2=$(($RANDOM % 88))
-random3=$(($RANDOM % 88))
-
-# Actores/actrices aleatorios
 actor1=$(awk -F, "NR==$random {print \$4}" "$archivo")
 actor2=$(awk -F, "NR==$random2 {print \$4}" "$archivo")
 actor3=$(awk -F, "NR==$random3 {print \$4}" "$archivo")
@@ -44,4 +47,3 @@ fi
 
 echo "************************** PREMI UNA TECLA PER CONTINUAR *************************"
 read -n 1 -s  # Esperar a que el usuario pulse una tecla para continuar
-
