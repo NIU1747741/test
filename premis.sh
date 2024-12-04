@@ -35,7 +35,7 @@ mostrarOpcioNoValida() {
 # Función para opciones en desarrollo
 mostrarEnDesarrollo() {
   clear
-  echo "En desenvolupament"
+  echo "En desenvolupament."
   read -p "Prem qualsevol tecla per continuar..." -n1
   clear
 }
