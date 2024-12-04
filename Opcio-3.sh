@@ -35,11 +35,11 @@ case $num in
 	1) 
 		bash tasca3-1.sh $ACTORS $ACTRIUS;;
 	2)
-		bash Tasca3-2.sh;;
+		bash Tasca3-2.sh $ACTORS $ACTRIUS;;
 	3)
 		bash tasca3-3.sh $ACTORS $ACTRIUS;;
 	0)
-		bash premis.sh
+		bash premis.sh;;
 	*)
 		mostrarOpcioNoValida;;
 esac
