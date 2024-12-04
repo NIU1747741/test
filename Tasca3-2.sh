@@ -18,16 +18,17 @@ actor2=$(awk -F, "NR==$random2 {print \$4}" $1)
 actor3=$(awk -F, "NR==$random3 {print \$4}" $1)
 #PREGUNTA
 
-# He buscat informació, i la millor forma de fer aquesta part, és una barreja amb shuf, si la professora necessita explicació per la meva part de com utilitzar això se la puc donar
+# He buscat informació, i la millor forma de fer aquesta part, és una barreja amb shuf, si la professora necessita explicació per la meva part de com utilitzar això se la puc donar. Però al final no hem serveix per res, ja que si intento fer una barreja em separa els cognoms també
 
-opcions=("$actor1" "$actor2" "$actor3")
-opcions=($(shuf -e "${opcions[@]}"))
-correcta=1
+actors=("$actor1" "$actor2" "$actor3")
+#barreja=($(shuf -e "${actors[@]}"))
+correcta=3
+
 
 echo -e "L'oscar a millor actriu amb$pelirandom el va guanyar al$anyrandom \n"
-echo "1 - $actor1"  
+echo "1 - $actor3"  
 echo "2 - $actor2"  
-echo "3 - $actor3"  
+echo "3 - $actor1"  
 echo -e "\n-------------------------------------------------- \n "
 echo "Selecciona una opció [1,2,3]: "
 
