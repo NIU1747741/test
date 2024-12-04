@@ -24,25 +24,45 @@ random3=$(($RANDOM % total_lines + 2))
 # Extraer información usando los índices
 pelirandom=$(awk -F, "NR==$random {print \$5}" "$archivo")
 anyrandom=$(awk -F, "NR==$random {print \$2}" "$archivo")
-actor1=$(awk -F, "NR==$random {print \$4}" "$archivo")
+actor_correct=$(awk -F, "NR==$random {print \$4}" "$archivo")
 actor2=$(awk -F, "NR==$random2 {print \$4}" "$archivo")
 actor3=$(awk -F, "NR==$random3 {print \$4}" "$archivo")
 
-# Mostrar pregunta
-correcta=3
+# Crear una lista de actores con la correcta y dos incorrectas
+actors=("$actor_correct" "$actor2" "$actor3")
+
+# Mezcla manual de los actores sin usar shuf
+for i in {0..2}; do
+    j=$(($RANDOM % 3))  # Genera un índice aleatorio entre 0 y 2
+    # Intercambiar los elementos
+    temp="${actors[$i]}"
+    actors[$i]="${actors[$j]}"
+    actors[$j]="$temp"
+done
+
+# Encontrar la posición de la respuesta correcta en la lista mezclada
+correcta_index=0
+for i in "${!actors[@]}"; do
+    if [[ "${actors[$i]}" == "$actor_correct" ]]; then
+        correcta_index=$((i + 1))  # Ajustar para opciones 1, 2, 3
+        break
+    fi
+done
+
+# Mostrar la pregunta con las opciones mezcladas
 echo -e "L'oscar a millor $( [[ $homeodona -eq 1 ]] && echo 'actor' || echo 'actriu' ) amb $pelirandom el va guanyar al $anyrandom \n"
-echo "1 - $actor3"
-echo "2 - $actor2"
-echo "3 - $actor1"
+for i in "${!actors[@]}"; do
+    echo "$((i + 1)) - ${actors[$i]}"
+done
 echo -e "\n-------------------------------------------------- \n"
 echo "Selecciona una opció [1,2,3]: "
 
 # Leer respuesta y verificar
 read Opcio
-if [[ $Opcio -eq $correcta ]]; then
+if [[ $Opcio -eq $correcta_index ]]; then
     echo "Felicitats"
 else
-    echo "No felicitats"
+    echo "Oh, sembla que no és la resposta correcta..."
 fi
 
 echo "************************** PREMI UNA TECLA PER CONTINUAR *************************"
