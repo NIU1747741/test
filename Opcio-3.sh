@@ -24,31 +24,28 @@ mostrarOpcioNoValida() {
 
 #Bucle principal del menú
 while true; do
+	MostrarMenu
 
-MostrarMenu
-
-read num
-
-case $num in 
-	1) 
-		clear
-		bash tasca3-1.sh $ACTORS $ACTRIUS
-		;;
-	2)	
-		clear
-		bash Tasca3-2.sh $ACTORS $ACTRIUS
-		;;
-	3)
-		clear
-		bash tasca3-3.sh $ACTORS $ACTRIUS
-		;;
-	0)
-		exit
-		;;
-	*)
-		mostrarOpcioNoValida;;
-esac
-
+	read num
+	
+	case $num in 
+		1) 
+			clear
+			bash tasca3-1.sh $ACTORS $ACTRIUS
+			;;
+		2)	
+			clear
+			bash tasca3-2.sh $ACTORS $ACTRIUS
+			;;
+		3)
+			clear
+			bash tasca3-3.sh $ACTORS $ACTRIUS
+			;;
+		0)
+			exit
+			;;
+		*)
+			mostrarOpcioNoValida;;
+	esac
 done
 
-echo ""
