@@ -28,7 +28,7 @@ lines=$(tail -n +2 "$selected_file" | shuf -n 3)
 peliculas=()
 years=()
 
-while IFS=',' read -r year name age movie; do
+while IFS=',' read -r index year age name movie; do
   peliculas+=("$name amb $age anys va guanyar l’Oscar a millor $tipo amb $movie")
   years+=("$year")
 done <<< "$lines"
