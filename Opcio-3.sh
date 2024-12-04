@@ -32,7 +32,7 @@ case $num in
 	2)
 		echo "En desenvolupament 2";;
 	3)
-		echo "En desenvolupament 1";;
+		bash tasca3-3.sh $ACTORS $ACTRIUS;;
 	0)
 		exit;;
 	*)
