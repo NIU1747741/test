@@ -12,7 +12,7 @@ MostrarMenu () {
 	echo -e "2.	Qui va guanyar l'Oscar"
 	echo -e "3.	Ordena cronològicament"
 	echo -e "0.	Tornar al menú anterior"
-	echo " "
+	echo -e "\nSeleccioneu una opció: "
 }
 
 mostrarOpcioNoValida() {
