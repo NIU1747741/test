@@ -4,19 +4,27 @@ Oscar Marcos Ruiz 1748165
 Miguel Gil Alcaraz 1747741
 David Caballero Ogazón 1745463
 
+----------------------------------
+
 FUNCIONAMENT DE LA PRÀCTICA
-Aquesta pràctica funciona amb codi bash script, el qual ens ha permès crear diferents opcions per realitzar el model del qual seria una pàgina web anomenada amor pel setè art.
 
-La realització d'aquesta pàgina s'ha fet amb GitHub, ja que permetia poder fusionar el treball individual per poder acabar duent a terme una única tasca.
+Aquesta part de la pràctica segueix funcionant amb codi bash script, el qual ens ha permès crear diferents opcions per realitzar el model de la web anomenada amor pel setè art.
 
-El que busca el programa és poder realitzar una recerca personalitzada sobre certs aspectes d'algunes pel·lícules les quals han guanyat un oscar a millor actor i millor actriu. Aquests aspectes van des de la cerca del nom de la pel·lícula fins a rebre un llistat dels actors i actrius per data.
+La realització d'aquesta pàgina s'ha fet de forma grupal amb GitHub, ja que permetia poder fusionar el treball individual per poder acabar duent a terme una única tasca que sortia mitjançant el merge de les branques
 
-El menú que presenta la pràctica és intuïtiu i té 5 opcions, les quals moltes porten a altres opcions que fan la recerca d'informació més exacta.
+El que buscava aquesta part de la tasca era realitzar unes certes opcions que permetessin posar a proba el nivell de coneixements de cinema de la persona que entrava a la pàgina de diferents maneres (preguntar per l'any de la película, el nombre d'un actor guanyador a x any...) o també que permetessin realitzar canvis a l'arxiu que contenia les dades dels actors i les actrius.
+
+Tota aquesta part de la pràctica culmina amb la recopilació de tot en un menú que va per les diferents parts de la pàgina web creada.
+
+----------------------------------------------------------------------
 
 EXPLICACIÓ DE COM EXECUTAR EL CODI
+
 Per executar el codi del repositori s'ha de fer bash premis.sh BestActor.csv BestActress.csv
 
 Fent això el programa començarà a funcionar i es podran seleccionar totes les opcions disponibles, les quals donaran informació basada en els fitxers "BestActor.csv" i "BestActress.csv".
+
+Cada execució dins del menu seleccionarà arguments diferents moltes vegades, però això ja ho gestiona el propi menú, que està configurat per afegir aquests arguments.
 
 PROBLEMES I SOLUCIONS
 Un dels problemes més grans que ens va sorgir va ser quan es va fer una fusió de branques de forma incorrecta, ja que no s'havia fet un canvi menor necessari per poder separar bé les branques amb antelació per a després ajuntar-les. Aleshores vam haver de dissoldre el canvi amb una comanda que vam trobar a una web.
