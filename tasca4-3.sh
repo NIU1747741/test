@@ -79,10 +79,10 @@ if sed -i "s|^$line$|$new_line|" "$selected_file"; then
   echo "Modificació realitzada amb èxit!"
   echo "Nou registre després de la modificació:"
   echo "  Índex: $index"
-  echo "  Any: $actual_year"
-  echo "  Edat: $actual_age anys"
-  echo "  Nom: $actual_name"
-  echo "  Pel·lícula: $actual_movie"
+  echo "  Any: $year"
+  echo "  Edat: $new_age anys"
+  echo "  Nom: $new_name"
+  echo "  Pel·lícula: $new_movie"
 else
   # Si sed falla, mostramos un mensaje de error
   echo "Error: No s'ha pogut dur a terme la modificació."
