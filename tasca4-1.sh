@@ -10,7 +10,7 @@ awk -F, 'BEGIN {}
 $2 == a {print "true" > tof}
 END {}' a=$any tof="tof" $BESTACTOR
 
-if [[ 'cat tof' == true ]];
+if [[ $(cat tof) == "true" ]];
 then
 echo "Any repetit"
 rm tof
