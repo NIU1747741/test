@@ -36,8 +36,13 @@ echo $any > dany
 echo $titol > dtitol
 echo $nom > dnom
 echo $edat > dedat
-echo " " > hueco 
+
 paste -d, dlineas dany dedat dnom dtitol
+rm dlineas
+rm dany
+rm dnom
+rm dedat
+rm dtitol
 
 fi
 
