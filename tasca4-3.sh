@@ -40,4 +40,15 @@ if [[ -z "$line" ]]; then
   exit 1
 fi
 
+# Mostrar los datos actuales
+IFS=',' read -r index actual_year actual_age actual_name actual_movie <<< "$line"
+echo "S'ha trobat el registre:"
+echo "  Índex: $index"
+echo "  Any: $actual_year"
+echo "  Edat: $actual_age anys"
+echo "  Nom: $actual_name"
+echo "  Pel·lícula: $actual_movie"
+
+
+
 esperarPulsarTecla
