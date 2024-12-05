@@ -49,6 +49,25 @@ echo "  Edat: $actual_age anys"
 echo "  Nom: $actual_name"
 echo "  Pel·lícula: $actual_movie"
 
+# Pedir nuevos datos o mantener los existentes
+echo "Introdueix el nou títol (o = per mantenir el títol actual: $actual_movie):"
+read new_movie
+if [[ "$new_movie" == "=" ]]; then
+  new_movie="$actual_movie"
+fi
+
+echo "Introdueix el nou nom (o = per mantenir el nom actual: $actual_name):"
+read new_name
+if [[ "$new_name" == "=" ]]; then
+  new_name="$actual_name"
+fi
+
+echo "Introdueix la nova edat (o = per mantenir l'edat actual: $actual_age):"
+read new_age
+if [[ "$new_age" == "=" ]]; then
+  new_age="$actual_age"
+fi
+
 
 
 esperarPulsarTecla
