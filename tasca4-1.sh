@@ -37,7 +37,7 @@ echo $titol > dtitol
 echo $nom > dnom
 echo $edat > dedat
 
-paste -d, dlineas dany dedat dnom dtitol
+paste -d, dlineas dany dedat dnom dtitol >> $BESTACTOR
 rm dlineas
 rm dany
 rm dnom
