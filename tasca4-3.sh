@@ -14,6 +14,8 @@ esperarPulsarTecla() {
 	read -n 1 -s  # Esperar a que el usuario pulse una tecla para continuar
 }
 
+clear
+
 # Preguntar si se quiere modificar actor o actriz
 echo "¿Quieres modificar un actor o una actriu? (actor/actriu)"
 read tipo
@@ -68,6 +70,22 @@ if [[ "$new_age" == "=" ]]; then
   new_age="$actual_age"
 fi
 
+# Crear la nueva línea con los datos modificados
+new_line="$index, $year, $new_age, $new_name, $new_movie"
 
+# Reemplazar la línea en el archivo
+if sed -i "s|^$line$|$new_line|" "$selected_file"; then
+  # El comando `sed` busca la línea exacta `$line` en el archivo `$selected_file`. La opción `-i` indica que se edita el archivo directame. "s" indica que queremos realizar una sustitución. El patrón `^$line$` asegura que coincida toda la línea completa. Si encuentra la línea, la reemplaza por el valor de `$new_line`
+  echo "Modificació realitzada amb èxit!"
+  echo "Nou registre després de la modificació:"
+  echo "  Índex: $index"
+  echo "  Any: $actual_year"
+  echo "  Edat: $actual_age anys"
+  echo "  Nom: $actual_name"
+  echo "  Pel·lícula: $actual_movie"
+else
+  # Si sed falla, mostramos un mensaje de error
+  echo "Error: No s'ha pogut dur a terme la modificació."
+fi
 
 esperarPulsarTecla
