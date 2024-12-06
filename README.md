@@ -26,12 +26,28 @@ Fent això el programa començarà a funcionar i es podran seleccionar totes les
 
 Cada execució dins del menu seleccionarà arguments diferents moltes vegades, però això ja ho gestiona el propi menú, que està configurat per afegir aquests arguments.
 
+----------------------------------------
+
 PROBLEMES I SOLUCIONS
-Un dels problemes més grans que ens va sorgir va ser quan es va fer una fusió de branques de forma incorrecta, ja que no s'havia fet un canvi menor necessari per poder separar bé les branques amb antelació per a després ajuntar-les. Aleshores vam haver de dissoldre el canvi amb una comanda que vam trobar a una web.
 
-També un gran problema va ser quan es va intentar fer un commit i un push sense que la persona que el volia fer hagués fet un pull anteriorment, i això va causar que el seu directori amb el projecte hagués de ser esborrat per clonar el directori git que estava penjat.
+Sense cap mena de dubte el pitjor problema que vam tenir va ser amb la tasca3-2, ja que a l'hora de barrejar l'opció correcta el shuffle separava el cognom del nom i no hi havia cap manera de poder solucionar això. Es a dir, es mostraven les opcions com:
 
-Altres problemes que hem tingut estan més relacionats amb el desenvolupament del codi, així que la seva menció no és tan important, ja que amb unes petites revisions es van arreglar.
+1- "Leonardo
+2 - DiCaprio"
+
+Per solucionar això vam crear una array per barrejar les opcions, encara això ens va costar moltíssim poder fer-la correctament.
+
+També algun company (David) va tenir algun problema per culpa de no fer pull, i va haver de esborrar tot el repositori git local i fer un clone, ja que no podia fer cap push
+
+Un altre problema que vam tenr va ser a l'hora d'implementar els scripts al menu de la tasca3, ja que ens van deixar de funcionar correctament, ja que es repetien correctament, però ho vam poder arreglar ràpid modificant el menú.
+
+
+
+------------------------
 
 CONCLUSIONS
-Aquesta pràctica de moment ens està mostrant com és d'útil la web GitHub per poder fer treballs en grup, perquè ens permet ajuntar el que treballem per separat. A part d'això, també estem veient com realitzar un codi per fer funcions en una pàgina web és una tasca que sembla senzilla, però que en certs punts arriba a ser complexa, i aplicar correctament l'ús de funcions i condicions és molt important.
+
+Realitzar aquesta pràctica ens ha ajudat moltíssim per entendre com funciona GitHub, quines son les commandes i com no tenir errors que afectin al procés de la tasca. Gràcies a això hem pogut veure que treballar en grup per fer aquest tipus de feines es essencial i ens estalvia moltíssim de temps, sobretot quan hi ha bona comprensió entre els companys.
+
+
+També la realització de les tasques ens ha permés desenvolupar una certa creativitat resolutiva, ja que moltes vegades per solucionar el que ens proposava la tasca hem fet algun arranjament bastant curiós, però efectiu. A més que també ens ha siguit útil per adaptar-nos a millor al llenguatge bash script, el qual pot ser poc intuitiu algunes vegades
