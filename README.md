@@ -18,7 +18,7 @@ Tota aquesta part de la pràctica culmina amb la recopilació de tot en un menú
 
 **---------------------------------**
 
-EXPLICACIÓ DE COM EXECUTAR EL CODI
+# EXPLICACIÓ DE COM EXECUTAR EL CODI
 
 Per executar el codi del repositori s'ha de fer bash premis.sh BestActor.csv BestActress.csv
 
@@ -33,6 +33,7 @@ Cada execució dins del menú seleccionarà arguments diferents moltes vegades, 
 Sense cap mena de dubte el pitjor problema que vam tenir va ser amb la tasca3-2, ja que a l'hora de barrejar l'opció correcta el shuffle separava el cognom del nom i no hi havia cap manera de poder solucionar això. És a dir, es mostraven les opcions com:
 
 1- "Leonardo
+
 2 - DiCaprio"
 
 Per solucionar això vam crear una array per barrejar les opcions, encara això ens va costar moltíssim poder fer-la correctament.
