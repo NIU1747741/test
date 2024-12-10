@@ -39,6 +39,7 @@ done
 echo "Introdueix l'any de la pel·lícula a eliminar"
 read any
 
+#Començem el bucle per trobar la linia amb l'any introduit
 trobat=false
 i=1
 Tany=`head -"$i" Tanys| tail -1`
@@ -46,18 +47,54 @@ anyMax=`tail -1 Tanys`
 
 while [ "$trobat" = false ] && [ "$Tany" -ne "$anyMax" ];
 do
-	if [ "$Tany" -eq "$anys" ];
+	if [ "$Tany" -eq "$any" ];
 	then
 	trobat=true
 	else
-	i=i+1
+	let i=i+1
+	Tany=`head -"$i" Tanys| tail -1`
 	fi
 done
 
+#Una vegada acabat el bucle, comprobem si s'ha trobat la linea y demanem confirmació per eliminarla si s'ha trobat (bucle while per assegurar resposta es S o N)
 if [ "$trobat" = false ];
 then
-echo "Any no trobat"
+echo "Any no trobat. No s'ha pogut eliminar la pel·lícula."
 else
-head -"$i" 
+head -1 $1 | tail -1
+head -$i Tact | tail -1
+echo "Estas realment segur/a de que vols borrar aquesta pel·lícula? (S/N)"
+read resposta
+while [ $resposta != "S" ] && [ $resposta != "N" ]
+do
+echo "Error: Introdueix S (Sí) o N (No)"
+echo "Estas realment segur/a de que vols borrar aquesta pel·lícula? (S/N)"
+read resposta
+done
+fi
 
-rm Tanys
+#Si s'ha confirmat l'eliminació, procedim a treure la linia del any del fitxer (Si es del fitxer actors o actrius dependrà de l'opcio del principi del codi)
+if [ $resposta = "S" ] && [ $opcio -eq 1 ];
+then
+let i=i-1
+head -"$i" Tact > tmp11
+let i=i+2
+tail +"$i" Tact >> tmp11
+else
+if [ $resposta = "S" ] && [ $opcio -eq 2 ];
+then
+let i=i-1
+head -"$i" Tact > tmp12
+let i=i+2
+tail +"$i" Tact >> tmp12
+else
+if [ $resposta = "N" ]
+then
+echo "No es borrará la pel·lícula"
+fi
+fi
+fi
+
+echo "********************************* PREM QUALSEVOL TECLA PER CONTINUAR **************************************"
+
+rm Tanys Tact
