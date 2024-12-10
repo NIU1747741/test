@@ -4,6 +4,8 @@ echo "**************************************************************************
 echo "******************************* 4-2 DONAR DE BAIXA ***************************************"
 echo " "
 
+#Guardem la primera linea dels fitxers (als 2 igual), que conté qué tipus de info té cada columna (Per posar-la al final al document però evitar en el codi)
+LInfo=`head -1 $1 | tail -1`
 
 #Preguntem si vol eliminar una pel·lícula de actors o de actrius i Passem els anys dels documents a fitxers temporals per poder-los identificar
 echo "Escull de quin fitxer vols borrar una pel·lícula"
@@ -59,42 +61,45 @@ done
 #Una vegada acabat el bucle, comprobem si s'ha trobat la linea y demanem confirmació per eliminarla si s'ha trobat (bucle while per assegurar resposta es S o N)
 if [ "$trobat" = false ];
 then
-echo "Any no trobat. No s'ha pogut eliminar la pel·lícula."
+	echo "Any no trobat. No s'ha pogut eliminar la pel·lícula."
+	echo "********************************* PREM QUALSEVOL TECLA PER CONTINUAR **************************************"
+	read -n 1 -s  #Esperar a que l'usuari premi una tecla per continuar
+	exit
 else
-head -1 $1 | tail -1
-head -$i Tact | tail -1
-echo "Estas realment segur/a de que vols borrar aquesta pel·lícula? (S/N)"
-read resposta
-while [ $resposta != "S" ] && [ $resposta != "N" ]
-do
-echo "Error: Introdueix S (Sí) o N (No)"
-echo "Estas realment segur/a de que vols borrar aquesta pel·lícula? (S/N)"
-read resposta
-done
+	head -1 $1 | tail -1
+	head -$i Tact | tail -1
+	echo "Estas realment segur/a de que vols borrar aquesta pel·lícula? (S/N)"
+	read resposta
+	while [ $resposta != "S" ] && [ $resposta != "N" ]
+	do
+	echo "Error: Introdueix S (Sí) o N (No)"
+	echo "Estas realment segur/a de que vols borrar aquesta pel·lícula? (S/N)"
+	read resposta
+	done
 fi
 
 #Si s'ha confirmat l'eliminació, procedim a treure la linia del any del fitxer (Si es del fitxer actors o actrius dependrà de l'opcio del principi del codi)
-if [ $resposta = "S" ] && [ $opcio -eq 1 ];
-then
-let i=i-1
-head -"$i" Tact > tmp11
-let i=i+2
-tail +"$i" Tact >> tmp11
+if [ $resposta = "S" ] && [ $opcio -eq 1 ]; then
+	echo $LInfo > $1
+	let i=i-1
+	head -"$i" Tact >> $1
+	let i=i+2
+	tail +"$i" Tact >> $1
 else
-if [ $resposta = "S" ] && [ $opcio -eq 2 ];
-then
-let i=i-1
-head -"$i" Tact > tmp12
-let i=i+2
-tail +"$i" Tact >> tmp12
+if [ $resposta = "S" ] && [ $opcio -eq 2 ]; then
+	echo $LInfo > $2
+	let i=i-1
+	head -"$i" Tact >> $2
+	let i=i+2
+	tail +"$i" Tact >> $2
 else
-if [ $resposta = "N" ]
-then
-echo "No es borrará la pel·lícula"
+if [ $resposta = "N" ]; then
+	echo "No es borrará la pel·lícula"
 fi
 fi
 fi
 
 echo "********************************* PREM QUALSEVOL TECLA PER CONTINUAR **************************************"
+read -n 1 -s  #Esperar a que l'usuari premi una tecla per continuar
 
 rm Tanys Tact
