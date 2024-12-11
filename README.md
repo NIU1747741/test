@@ -4,7 +4,7 @@
 ## Miguel Gil Alcaraz 1747741
 ## David Caballero Ogazón 1745463
 
-**---------------------------------**
+---
 
 # FUNCIONAMENT DE LA PRÀCTICA
 
@@ -16,7 +16,7 @@ El que buscava aquesta part de la tasca era realitzar unes certes opcions que pe
 
 Tota aquesta part de la pràctica culmina amb la recopilació de tot en un menú que va per les diferents parts de la pàgina web creada.
 
-**---------------------------------**
+---
 
 # EXPLICACIÓ DE COM EXECUTAR EL CODI
 
@@ -26,8 +26,7 @@ Fent això el programa començarà a funcionar i es podran seleccionar totes les
 
 Cada execució dins del menú seleccionarà arguments diferents moltes vegades, però això ja ho gestiona el propi menú, que està configurat per afegir aquests arguments.
 
-**---------------------------------**
-
+---
 # PROBLEMES I SOLUCIONS
 
 Sense cap mena de dubte el pitjor problema que vam tenir va ser amb la tasca3-2, ja que a l'hora de barrejar l'opció correcta el shuffle separava el cognom del nom i no hi havia cap manera de poder solucionar això. És a dir, es mostraven les opcions com:
@@ -42,7 +41,7 @@ També algun company (David) va tenir algun problema per culpa de no fer pull, i
 
 Un altre problema que vam tenir va ser a l'hora d'implementar els scripts al menú de la tasca3, pel fet que ens van deixar de funcionar correctament, perquè es repetien de forma indefinida, però ho vam poder arreglar ràpid modificant el menú.
 
-**---------------------------------**
+---
 
 # CONCLUSIONS
 
