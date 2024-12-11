@@ -32,11 +32,11 @@ while true; do
 		1) 
 			clear
 			echo "Introdueix el nom del fitxer, any, titol, nom, i edat"
-			read ACTORS
-			read any
-			read titol
-			read nom
-			read edat
+			read -p "Nom del fitxer: " ACTORS
+			read -p "Any: " any
+			read -p "Títol: " titol
+			read -p "Nom: " nom
+			read -p "Edat: " edat
 			bash tasca4-1.sh $ACTORS $any $titol $nom $edat
 			;;
 		2)	
@@ -70,14 +70,24 @@ while true; do
 			;;
 		3)
 			clear
-			echo "Introdueix el nom del fitxer, any, titol, nom, i edat"
-			read ACTORS
-			read any
-			read titol
-			read nom
-			read edat
-			bash tasc
-			bash tasca4-3.sh $ACTORS $any $titol $nom $edat
+			# Preguntar si se quiere modificar actor o actriz
+			echo "¿Quieres modificar un actor o una actriu? (actor/actriu)"
+			read tipo
+
+			if [[ "$tipo" == "actor" ]]; then
+				selected_file="$actor_file"
+			elif [[ "$tipo" == "actriu" ]]; then
+				selected_file="$actress_file"
+			else
+				echo "Error: Opción no válida. Debes escribir 'actor' o 'actriu'."
+				esperarPulsarTecla
+				exit 1
+			fi
+			read -p "Any: " any
+			read -p "Títol: " titol
+			read -p "Nom: " nom
+			read -p "Edat: " edat
+			bash tasca4-3.sh $selected_file $any $titol $nom $edat
 			;;
 		0)
 			exit
