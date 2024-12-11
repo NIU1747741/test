@@ -70,24 +70,29 @@ while true; do
 			;;
 		3)
 			clear
-			# Preguntar si se quiere modificar actor o actriz
-			echo "¿Quieres modificar un actor o una actriu? (actor/actriu)"
-			read tipo
-
-			if [[ "$tipo" == "actor" ]]; then
-				selected_file="$actor_file"
-			elif [[ "$tipo" == "actriu" ]]; then
-				selected_file="$actress_file"
+			echo "******************************************************************************************"
+			echo "******************************* 4-3 MODIFICAR ***************************************"
+			echo " "
+			echo "Escull de quin fitxer vols fer la modificació"
+			echo "(1) Actors"
+			echo "(2) Actrius"
+			echo ""
+			read opcio3
+			if [ $opcio3 -eq 1 ]; then
+				selected_file=$ACTORS
+			elif [ $opcio3 -eq 2 ]; then
+				selected_file=$ACTRIUS
 			else
-				echo "Error: Opción no válida. Debes escribir 'actor' o 'actriu'."
-				esperarPulsarTecla
-				exit 1
+				echo "Valor incorrecte (Ha de ser 1 o 2)"
+				sleep 1
+				continue
 			fi
+
 			read -p "Any: " any
-			read -p "Títol: " titol
-			read -p "Nom: " nom
-			read -p "Edat: " edat
-			bash tasca4-3.sh $selected_file $any $titol $nom $edat
+			read -p "Títol (o = per mantenir): " titol
+			read -p "Nom (o = per mantenir): " nom
+			read -p "Edat (o = per mantenir): " edat
+			bash tasca4-3.sh $selected_file $any "$titol" "$nom" "$edat"
 			;;
 		0)
 			exit
