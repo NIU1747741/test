@@ -32,7 +32,7 @@ mostrarOpcioNoValida() {
   clear
 }
 
-# Función para opciones en desarrollo
+# Función para las opciones en desarrollo
 mostrarEnDesarrollo() {
   clear
   echo "En desenvolupament."
