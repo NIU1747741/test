@@ -41,7 +41,33 @@ while true; do
 			;;
 		2)	
 			clear
-			bash Tasca4-2.sh $ACTORS $any
+			echo "******************************************************************************************"
+			echo "******************************* 4-2 DONAR DE BAIXA ***************************************"
+			echo " "
+			#Pedim el fitxer del que es vol borrar la pel·lícula per poder iniciar el script amb els arguments adequats
+			echo "Escull de quin fitxer vols borrar una pel·lícula"
+			echo "(1) Actors"
+			echo "(2) Actrius"
+			echo ""
+			read opcio2
+			if [ $opcio2 -eq 1 ]; then
+				echo "Has escollit Actors"
+				echo "Introdueix l'any de la pel·lícula que vols borrar"
+				read any
+				bash Tasca4-2.sh $ACTORS $any
+			else
+			if [ $opcio2 -eq 2 ]; then 
+				echo "Has escollit Actrius"
+				echo "Introdueix l'any de la pel·lícula que vols borrar"
+				read any
+				bash Tasca4-2.sh $ACTRIUS $any
+			else
+				echo "Valor incorrecte(Ha de ser 1 o 2)"
+				sleep 1
+				break
+			fi
+			fi
+			;;
 			;;
 		3)
 			clear

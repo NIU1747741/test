@@ -1,47 +1,13 @@
 #!/bin/bash
 
-echo "******************************************************************************************"
-echo "******************************* 4-2 DONAR DE BAIXA ***************************************"
-echo " "
 
-#Guardem la primera linea dels fitxers (als 2 igual), que conté qué tipus de info té cada columna (Per posar-la al final al document però evitar en el codi)
-LInfo=`head -1 $1 | tail -1`
-
-#Preguntem si vol eliminar una pel·lícula de actors o de actrius i Passem els anys dels documents a fitxers temporals per poder-los identificar
-echo "Escull de quin fitxer vols borrar una pel·lícula"
-echo "(1) Actors"
-echo "(2) Actrius"
-echo ""
-read opcio
-while [ $opcio -ne 1 ] || [ $opcio -ne 2 ];
-do
-case $opcio in 
-	1) echo "Has escollit Actors"
-	tail +2 $1 > Tact
-	cut -d, -f2 Tact > Tanys
-	break
-	;;
-	2) echo "Has escollit Actrius"
-	tail +2 $2 > Tact
-	cut -d, -f2 Tact > Tanys
-	break
-	;;
-	*) echo "Error:Introdueix 1 o 2"
-	echo "Escull de quin fitxer vols borrar una pel·lícula"
-	echo "(1) Actors"
-	echo "(2) Actrius"
-	echo ""
-	read opcio
-	clear
-	;;
-esac
-done
-
-#Demanem l'any a eliminar
-echo "Introdueix l'any de la pel·lícula a eliminar"
-read any
+#Guardem la primera linia del fitxer per utilitzarla més endavant però que no interfereixi en el codi al buscar anys
+LInfo=`head -1 $1`
 
 #Començem el bucle per trobar la linia amb l'any introduit
+tail +2 $1 > Tact
+cut -d, -f2 Tact > Tanys
+
 trobat=false
 i=1
 Tany=`head -"$i" Tanys| tail -1`
@@ -49,7 +15,7 @@ anyMax=`tail -1 Tanys`
 
 while [ "$trobat" = false ] && [ "$Tany" -ne "$anyMax" ];
 do
-	if [ "$Tany" -eq "$any" ];
+	if [ "$Tany" -eq "$2" ];
 	then
 	trobat=true
 	else
@@ -66,7 +32,6 @@ then
 	read -n 1 -s  #Esperar a que l'usuari premi una tecla per continuar
 	exit
 else
-	head -1 $1 | tail -1
 	head -$i Tact | tail -1
 	echo "Estas realment segur/a de que vols borrar aquesta pel·lícula? (S/N)"
 	read resposta
@@ -78,24 +43,16 @@ else
 	done
 fi
 
-#Si s'ha confirmat l'eliminació, procedim a treure la linia del any del fitxer (Si es del fitxer actors o actrius dependrà de l'opcio del principi del codi)
-if [ $resposta = "S" ] && [ $opcio -eq 1 ]; then
+#Si s'ha confirmat l'eliminació, procedim a treure la linia del any del fitxer
+if [ $resposta = "S" ]; then
 	echo $LInfo > $1
 	let i=i-1
 	head -"$i" Tact >> $1
 	let i=i+2
 	tail +"$i" Tact >> $1
 else
-if [ $resposta = "S" ] && [ $opcio -eq 2 ]; then
-	echo $LInfo > $2
-	let i=i-1
-	head -"$i" Tact >> $2
-	let i=i+2
-	tail +"$i" Tact >> $2
-else
 if [ $resposta = "N" ]; then
 	echo "No es borrará la pel·lícula"
-fi
 fi
 fi
 
