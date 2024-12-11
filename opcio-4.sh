@@ -31,13 +31,29 @@ while true; do
 	case $num in 
 		1) 
 			clear
-			echo "Introdueix el nom del fitxer, any, titol, nom, i edat"
-			read -p "Nom del fitxer: " ACTORS
+			echo "******************************************************************************************"
+			echo "******************************* 4-1 DONAR D'ALTA ***************************************"
+			echo " "
+			echo "Escull de quin fitxer vols donar d'alta una pel·lícula"
+			echo "(1) Actors"
+			echo "(2) Actrius"
+			echo ""
+			read opcio1
+			if [ $opcio1 -eq 1 ]; then
+				selected_file=$ACTORS
+			elif [ $opcio1 -eq 2 ]; then
+				selected_file=$ACTRIUS
+			else
+				echo "Valor incorrecte (Ha de ser 1 o 2)"
+				sleep 1
+				continue
+			fi
+
 			read -p "Any: " any
 			read -p "Títol: " titol
 			read -p "Nom: " nom
 			read -p "Edat: " edat
-			bash tasca4-1.sh $ACTORS $any $titol $nom $edat
+			bash tasca4-1.sh $selected_file $any "$titol" "$nom" "$edat"
 			;;
 		2)	
 			clear
