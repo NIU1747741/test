@@ -8,9 +8,9 @@ MostrarMenu () {
 	echo -e "-------------------------------------------------- \n"
 	echo -e " 4 - Gestió del catàleg. \n "
 	echo -e "-------------------------------------------------- \n"
-	echo -e "4-1.	Donar d'alta"
-	echo -e "4-2.	Donar de baixa"
-	echo -e "4-3.	Fer una modificació"
+	echo -e "1.	Donar d'alta"
+	echo -e "2.	Donar de baixa"
+	echo -e "3.	Fer una modificació"
 	echo -e "0.	Tornar al menú anterior"
 	echo -e "\nSeleccioneu una opció: "
 }
@@ -67,7 +67,6 @@ while true; do
 				break
 			fi
 			fi
-			;;
 			;;
 		3)
 			clear
