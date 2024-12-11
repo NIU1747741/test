@@ -31,15 +31,15 @@ while true; do
 	case $num in 
 		1) 
 			clear
-			bash tasca4-1.sh $ACTORS $ACTRIUS
+			bash tasca4-1.sh $ACTORS $any $titol $nom $edat
 			;;
 		2)	
 			clear
-			bash tasca4-2.sh $ACTORS $ACTRIUS
+			bash Tasca4-2.sh $ACTORS $any
 			;;
 		3)
 			clear
-			bash tasca4-3.sh $ACTORS $ACTRIUS
+			bash tasca4-3.sh $ACTORS $any $titol $nom $edat
 			;;
 		0)
 			exit
