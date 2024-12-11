@@ -31,6 +31,12 @@ while true; do
 	case $num in 
 		1) 
 			clear
+			echo "Introdueix el nom del fitxer, any, titol, nom, i edat"
+			read ACTORS
+			read any
+			read titol
+			read nom
+			read edat
 			bash tasca4-1.sh $ACTORS $any $titol $nom $edat
 			;;
 		2)	
@@ -39,6 +45,13 @@ while true; do
 			;;
 		3)
 			clear
+			echo "Introdueix el nom del fitxer, any, titol, nom, i edat"
+			read ACTORS
+			read any
+			read titol
+			read nom
+			read edat
+			bash tasc
 			bash tasca4-3.sh $ACTORS $any $titol $nom $edat
 			;;
 		0)
